@@ -21,7 +21,7 @@
 @endjson
 </code>
 
-#### List View:
+#### Markdown View:
 - documents
   - id
   - name

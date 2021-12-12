@@ -7,6 +7,11 @@ You will need these installed:
 
 # Setup
 clone this project
+Put your password and secret key into a file named `config.cfg` in the `setup/` folder, with the format:
+```
+localDatabasePassword=<random password here>
+secretKey=<random key here>
+```
 `cd` into `setup/`
 and run `bash install-database.sh`
 

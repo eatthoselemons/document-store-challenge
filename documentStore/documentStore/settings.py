@@ -20,6 +20,8 @@ import json
 import os
 from django.core.exceptions import ImproperlyConfigured
 
+print("using settings.py file")
+
 with open(os.path.join(BASE_DIR, 'secrets.json')) as secrets_file:
     secrets = json.load(secrets_file)
 
@@ -42,7 +44,7 @@ SECRET_KEY = get_secret('secret-key')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '.ethanlambert.info']
 
 
 # Application definition
@@ -143,3 +145,6 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# mine
+LOCAL_FILE_DIR = '~/document-store-challenge/'

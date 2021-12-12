@@ -2,6 +2,8 @@ trap_msg='s=${?}; echo "${0}: Error on line "${LINENO}": ${BASH_COMMAND}"; exit 
 set -uo pipefail
 trap "${trap_msg}" ERR
 
+mkdir -p ~/document-store-challenge/
+
 # source my config bash lib
 source ./config.shlib
 
@@ -11,11 +13,10 @@ secretKey=$(getConfigVar config.cfg secretKey)
 
 export PGPASSWORD=$dbpassword
 
-echo "
-{
-  "secret-key": $secretKey,
-  "db-password": $dbpassword
-}" > secrets.json
+echo "{
+  \"secret-key\": \"$secretKey\",
+  \"db-password\": \"$dbpassword\"
+}" > ../documentStore/secrets.json
 
 
 # setup and run postgres docker container
@@ -35,3 +36,4 @@ createdb -h localhost -U postgres -p 5432 -T template0 documentStore
 
 # clear the password
 export PGPASSWORD=""
+
