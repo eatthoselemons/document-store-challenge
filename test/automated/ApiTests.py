@@ -61,7 +61,7 @@ class BasicApiTests(TestCase):
         """Searches for all files that are inside a folder that is sent via json"""
         url = baseUrl.concat("search-folder/")
         search_json = {"folder": "test"}
-        r = requests.get(url)
+        r = requests.post(url)
         expected_json = {
             "matching files": [
                 "test-file-1.txt",
@@ -74,7 +74,7 @@ class BasicApiTests(TestCase):
         """Searches for all files that match a topic, topic is sent via json"""
         url = baseUrl.concat("search-topic/")
         search_json = {"topic": "first"}
-        r = requests.get(url)
+        r = requests.post(url)
         expected_json = {
             "matching files": [
                 "test-file-1.txt",
