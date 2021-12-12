@@ -72,7 +72,6 @@ class BasicApiTests(TestCase):
 
     def search_for_files_by_topic(self):
         """Searches for all files that match a topic, topic is sent via json"""
-        url = baseUrl.concat("search-folder/")
         url = baseUrl.concat("search-topic/")
         search_json = {"topic": "first"}
         r = requests.get(url)
