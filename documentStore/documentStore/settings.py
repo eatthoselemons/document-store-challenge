@@ -42,7 +42,7 @@ SECRET_KEY = get_secret('secret-key')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'apiApp',
 ]
 
 MIDDLEWARE = [
@@ -93,9 +94,9 @@ WSGI_APPLICATION = 'documentStore.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'documentStore'
+        'NAME': 'documentStore',
         'USER': 'postgres',
-        'PASSWORD': get_secret('db-password')
+        'PASSWORD': get_secret('db-password'),
         'HOST': 'localhost',
         'PORT': '5432'
     }
