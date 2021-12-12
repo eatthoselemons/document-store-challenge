@@ -14,6 +14,7 @@ The public api is at:
 `/search-topic/`
 
 ### Upload-file
+##### NOTE only takes one file at a time
 url: `/upload-file/`
 type: `post`
 send payload in form:

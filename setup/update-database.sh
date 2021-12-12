@@ -1,3 +1,4 @@
 source ../venv/bin/activate
-python ../documentStore/manage.py makemigrations
-python ../documentStore/manage.py migrate
+cd ../documentStore
+python manage.py makemigrations
+python manage.py migrate
