@@ -46,3 +46,6 @@ change `test-config.json` to:
 }`
 
 Then same as before cd into `test` and run `bash run-automated_tests.sh`
+
+### External Curl Tests
+run one of the tests with `bash` and it will output the json that the server returned
