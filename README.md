@@ -24,3 +24,13 @@ source venv/bin/activate
 python3 -m pip install -r requirements.txt
 ```
 (use `deactivate` to leave the python virtual environment)
+
+cd into `setup` and run:
+`
+$ bash update-database.sh
+$ bash create-user-django.sh
+$ start-django.sh
+`
+
+You now should be up and running, you can go run the unittests now
+(`bash run-automated-tests.sh` inside the `test` folder)

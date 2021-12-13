@@ -3,17 +3,13 @@
 @startjson
 {
     "documents": [
-        "id",
-        "name",
-        "location id" : [
-            "id",
-            "location"
+        "title",
+        "folder" : [
+            "folder_name"
         ],
         "topics": [
-            "document id",
-            "topic id": [
-                "id",
-                "name"
+            "topic id many to many": [
+                "topic_name",
             ]
         ]
     ]
@@ -23,15 +19,13 @@
 
 #### Markdown View:
 - documents
-  - id
-  - name
-  - location id
+  - title
+  - folder
+  - topics
 - folders
-  - id
-  - location
+  - folder_name
 - topic ids
   - document id
   - topic id
 - topic names
-  - id
-  - name
+  - topic_name
