@@ -48,6 +48,7 @@ class BasicApiTests(TestCase):
             "all topics": [
                 "first",
                 "second",
+                "hello",
                 "last"
             ]
         }

@@ -7,9 +7,7 @@ from django.utils.decorators import method_decorator
 from django.views.decorators.csrf import csrf_exempt
 import json
 import os
-from .models import Document
-from .models import Topic
-from .models import Folder
+from .models import Document, Topic, Folder
 
 base_path = settings.LOCAL_FILE_DIR
 
@@ -28,7 +26,8 @@ class Upload(View):
             folder.save()
 
         try:
-            document = Document.objects.get(title=document_name)
+            document = Document.objects.get(title=document_name,
+                                            folder=folder)
         except Document.DoesNotExist as e:
             document = Document(title=document_name,
                                 folder=folder)
@@ -49,5 +48,28 @@ class Upload(View):
         }
         return JsonResponse(data, status=201)
 
+@method_decorator(csrf_exempt, name='dispatch')
+class All_Topics(View):
+    def get(self, request):
+        topics = Topic.objects.all()
+        list_topics = []
+        for item in topics:
+            list_topics.append(item.topic_name)
+        data = {
+            "all topics": list_topics
+        }
+        return JsonResponse(data, status=201)
 
-# Create your views here.
+
+@method_decorator(csrf_exempt, name='dispatch')
+class Search_Folder(View):
+    def post(self, request):
+        data = json.loads(request.body.decode('utf-8'))
+        
+        folders = Folder.object.filter(
+
+
+@method_decorator(csrf_exempt, name='dispatch')
+class Search_Topic(View):
+    def post(self, request):
+        data = json.loads(request.body.decode('utf-8'))
