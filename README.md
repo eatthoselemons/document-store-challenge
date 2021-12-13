@@ -32,5 +32,17 @@ $ bash create-user-django.sh
 $ start-django.sh
 `
 
-You now should be up and running, you can go run the unittests now
-(`bash run-automated-tests.sh` inside the `test` folder)
+
+# Running tests
+If you have the local server running you can leave everything and do:
+`$ cd test
+$ bash run-automated_tests.sh`
+
+if you want to test against an external server you need to change the `test-config.json`
+change `test-config.json` to:
+
+`{
+  "baseUrl": <your url>
+}`
+
+Then same as before cd into `test` and run `bash run-automated_tests.sh`

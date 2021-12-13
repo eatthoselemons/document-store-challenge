@@ -7,6 +7,7 @@ import os
 with open(os.path.join(os.getcwd(), '../test-config.json')) as config:
     baseUrl = json.load(config)['baseUrl']
 
+print(f"baseurl {baseUrl}")
 
 class FileApiTests(TestCase):
     def test_upload_file(self):
