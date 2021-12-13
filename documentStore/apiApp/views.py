@@ -49,7 +49,7 @@ class Upload(View):
         return JsonResponse(data, status=201)
 
 @method_decorator(csrf_exempt, name='dispatch')
-class All_Topics(View):
+class AllTopics(View):
     def get(self, request):
         topics = Topic.objects.all()
         list_topics = []
@@ -62,14 +62,32 @@ class All_Topics(View):
 
 
 @method_decorator(csrf_exempt, name='dispatch')
-class Search_Folder(View):
+class SearchFolder(View):
     def post(self, request):
         data = json.loads(request.body.decode('utf-8'))
-        
-        folders = Folder.object.filter(
+        folder_to_search_for = data.get('folder')
 
+        files = Document.objects.filter(folder__folder_name=folder_to_search_for)
+        list_files = []
+        for item in files:
+            list_files.append(item.title)
+        data = {
+            "matching files": list_files
+        }
+        print(f"data: {data}")
+        return JsonResponse(data, status=201)
 
 @method_decorator(csrf_exempt, name='dispatch')
-class Search_Topic(View):
+class SearchTopic(View):
     def post(self, request):
         data = json.loads(request.body.decode('utf-8'))
+        topic_to_search_for = data.get('topic')
+
+        files = Document.objects.filter(topics__topic_name=topic_to_search_for)
+        list_files = []
+        for item in files:
+            list_files.append(item.title)
+        data = {
+            "matching files": list_files
+        }
+        return JsonResponse(data, status=201)

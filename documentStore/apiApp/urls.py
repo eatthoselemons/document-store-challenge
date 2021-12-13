@@ -1,9 +1,9 @@
 from django.urls import path
-from .views import Upload, All_Topics, Search_Folder, Search_Topic
+from .views import Upload, AllTopics, SearchFolder, SearchTopic
 
 urlpatterns = [
     path('upload-file/', Upload.as_view()),
-    path('all-topics/', All_Topics.as_view()),
-    path('search-folder/', Search_Folder.as_view()),
-    path('search-topic/', Search_Topic.as_view())
+    path('all-topics/', AllTopics.as_view()),
+    path('search-folder/', SearchFolder.as_view()),
+    path('search-topic/', SearchTopic.as_view())
 ]
