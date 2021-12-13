@@ -39,7 +39,6 @@ class BasicApiTests(TestCase):
                          "last"
                      ]}
         r = requests.post(url, json=send_json)
-        # upload test files
 
     def test_get_all_topics(self):
         """get list of every topic in the database"""
@@ -52,7 +51,7 @@ class BasicApiTests(TestCase):
                 "last"
             ]
         }
-        self.assertEqual(r.json, expected_json)
+        self.assertEqual(r.json(), expected_json)
 
     def test_search_for_files_by_folder(self):
         """Searches for all files that are inside a folder that is sent via json"""
@@ -65,7 +64,7 @@ class BasicApiTests(TestCase):
                 "test-file-2.txt"
             ]
         }
-        self.assertEqual(r.json, expected_json)
+        self.assertEqual(r.json(), expected_json)
 
     def test_search_for_files_by_topic(self):
         """Searches for all files that match a topic, topic is sent via json"""
@@ -78,4 +77,4 @@ class BasicApiTests(TestCase):
                 "test-file-3.txt"
             ]
         }
-        self.assertEqual(r.json, expected_json)
+        self.assertEqual(r.json(), expected_json)

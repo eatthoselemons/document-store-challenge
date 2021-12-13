@@ -22,7 +22,7 @@ class FileApiTests(TestCase):
         expected_json = {
             "message": "new file added with name test-file-1.txt"
         }
-        self.assertEqual(r.json, expected_json)
+        self.assertEqual(r.json(), expected_json)
 
     @unittest.skip("not implemented")
     def test_download_file(self):
@@ -39,6 +39,6 @@ class FileApiTests(TestCase):
         expected_json = {
             "message": "file deleted by name test-file-1.txt"
         }
-        self.assertEqual(r.json, expected_json)
+        self.assertEqual(r.json(), expected_json)
         pass
         # delete a file by filename and folder
